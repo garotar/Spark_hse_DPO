@@ -1,2 +1,2 @@
-# Spark_beginners_guide
+# Spark 
 HSE 2021 spark and big data infrastructure basics
