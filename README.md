@@ -29,7 +29,7 @@ https://classroom.google.com/u/2/c/MjYxMDYxOTQ2NDcy/a/Mjg0NDgxOTY4Njk5/details
 https://classroom.google.com/u/2/c/MjYxMDYxOTQ2NDcy/a/Mjg2OTIzMTg1MjU2/details
 
 
-2) Вариант сдать БДЗ  - 5 задач из него (принимаются варианты как на Scala так и на pyspark)
+2) Вариант сдать БДЗ  - 10 задач из него (принимаются варианты как на Scala так и на pyspark)
 Напомню, что код уже есть написанный на SQL на сайте https://leetcode.com/problemset/database/
 И требуется переписать на spark.
 Ссылка:
