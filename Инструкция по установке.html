@@ -1,0 +1,632 @@
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=utf-8"/><title>Инструкция по установке</title><style>
+/* webkit printing magic: print all background colors */
+html {
+	-webkit-print-color-adjust: exact;
+}
+* {
+	box-sizing: border-box;
+	-webkit-print-color-adjust: exact;
+}
+
+html,
+body {
+	margin: 0;
+	padding: 0;
+}
+@media only screen {
+	body {
+		margin: 2em auto;
+		max-width: 900px;
+		color: rgb(55, 53, 47);
+	}
+}
+
+body {
+	line-height: 1.5;
+	white-space: pre-wrap;
+}
+
+a,
+a.visited {
+	color: inherit;
+	text-decoration: underline;
+}
+
+.pdf-relative-link-path {
+	font-size: 80%;
+	color: #444;
+}
+
+h1,
+h2,
+h3 {
+	letter-spacing: -0.01em;
+	line-height: 1.2;
+	font-weight: 600;
+	margin-bottom: 0;
+}
+
+.page-title {
+	font-size: 2.5rem;
+	font-weight: 700;
+	margin-top: 0;
+	margin-bottom: 0.75em;
+}
+
+h1 {
+	font-size: 1.875rem;
+	margin-top: 1.875rem;
+}
+
+h2 {
+	font-size: 1.5rem;
+	margin-top: 1.5rem;
+}
+
+h3 {
+	font-size: 1.25rem;
+	margin-top: 1.25rem;
+}
+
+.source {
+	border: 1px solid #ddd;
+	border-radius: 3px;
+	padding: 1.5em;
+	word-break: break-all;
+}
+
+.callout {
+	border-radius: 3px;
+	padding: 1rem;
+}
+
+figure {
+	margin: 1.25em 0;
+	page-break-inside: avoid;
+}
+
+figcaption {
+	opacity: 0.5;
+	font-size: 85%;
+	margin-top: 0.5em;
+}
+
+mark {
+	background-color: transparent;
+}
+
+.indented {
+	padding-left: 1.5em;
+}
+
+hr {
+	background: transparent;
+	display: block;
+	width: 100%;
+	height: 1px;
+	visibility: visible;
+	border: none;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.09);
+}
+
+img {
+	max-width: 100%;
+}
+
+@media only print {
+	img {
+		max-height: 100vh;
+		object-fit: contain;
+	}
+}
+
+@page {
+	margin: 1in;
+}
+
+.collection-content {
+	font-size: 0.875rem;
+}
+
+.column-list {
+	display: flex;
+	justify-content: space-between;
+}
+
+.column {
+	padding: 0 1em;
+}
+
+.column:first-child {
+	padding-left: 0;
+}
+
+.column:last-child {
+	padding-right: 0;
+}
+
+.table_of_contents-item {
+	display: block;
+	font-size: 0.875rem;
+	line-height: 1.3;
+	padding: 0.125rem;
+}
+
+.table_of_contents-indent-1 {
+	margin-left: 1.5rem;
+}
+
+.table_of_contents-indent-2 {
+	margin-left: 3rem;
+}
+
+.table_of_contents-indent-3 {
+	margin-left: 4.5rem;
+}
+
+.table_of_contents-link {
+	text-decoration: none;
+	opacity: 0.7;
+	border-bottom: 1px solid rgba(55, 53, 47, 0.18);
+}
+
+table,
+th,
+td {
+	border: 1px solid rgba(55, 53, 47, 0.09);
+	border-collapse: collapse;
+}
+
+table {
+	border-left: none;
+	border-right: none;
+}
+
+th,
+td {
+	font-weight: normal;
+	padding: 0.25em 0.5em;
+	line-height: 1.5;
+	min-height: 1.5em;
+	text-align: left;
+}
+
+th {
+	color: rgba(55, 53, 47, 0.6);
+}
+
+ol,
+ul {
+	margin: 0;
+	margin-block-start: 0.6em;
+	margin-block-end: 0.6em;
+}
+
+li > ol:first-child,
+li > ul:first-child {
+	margin-block-start: 0.6em;
+}
+
+ul > li {
+	list-style: disc;
+}
+
+ul.to-do-list {
+	text-indent: -1.7em;
+}
+
+ul.to-do-list > li {
+	list-style: none;
+}
+
+.to-do-children-checked {
+	text-decoration: line-through;
+	opacity: 0.375;
+}
+
+ul.toggle > li {
+	list-style: none;
+}
+
+ul {
+	padding-inline-start: 1.7em;
+}
+
+ul > li {
+	padding-left: 0.1em;
+}
+
+ol {
+	padding-inline-start: 1.6em;
+}
+
+ol > li {
+	padding-left: 0.2em;
+}
+
+.mono ol {
+	padding-inline-start: 2em;
+}
+
+.mono ol > li {
+	text-indent: -0.4em;
+}
+
+.toggle {
+	padding-inline-start: 0em;
+	list-style-type: none;
+}
+
+/* Indent toggle children */
+.toggle > li > details {
+	padding-left: 1.7em;
+}
+
+.toggle > li > details > summary {
+	margin-left: -1.1em;
+}
+
+.selected-value {
+	display: inline-block;
+	padding: 0 0.5em;
+	background: rgba(206, 205, 202, 0.5);
+	border-radius: 3px;
+	margin-right: 0.5em;
+	margin-top: 0.3em;
+	margin-bottom: 0.3em;
+	white-space: nowrap;
+}
+
+.collection-title {
+	display: inline-block;
+	margin-right: 1em;
+}
+
+time {
+	opacity: 0.5;
+}
+
+.icon {
+	display: inline-block;
+	max-width: 1.2em;
+	max-height: 1.2em;
+	text-decoration: none;
+	vertical-align: text-bottom;
+	margin-right: 0.5em;
+}
+
+img.icon {
+	border-radius: 3px;
+}
+
+.user-icon {
+	width: 1.5em;
+	height: 1.5em;
+	border-radius: 100%;
+	margin-right: 0.5rem;
+}
+
+.user-icon-inner {
+	font-size: 0.8em;
+}
+
+.text-icon {
+	border: 1px solid #000;
+	text-align: center;
+}
+
+.page-cover-image {
+	display: block;
+	object-fit: cover;
+	width: 100%;
+	height: 30vh;
+}
+
+.page-header-icon {
+	font-size: 3rem;
+	margin-bottom: 1rem;
+}
+
+.page-header-icon-with-cover {
+	margin-top: -0.72em;
+	margin-left: 0.07em;
+}
+
+.page-header-icon img {
+	border-radius: 3px;
+}
+
+.link-to-page {
+	margin: 1em 0;
+	padding: 0;
+	border: none;
+	font-weight: 500;
+}
+
+p > .user {
+	opacity: 0.5;
+}
+
+td > .user,
+td > time {
+	white-space: nowrap;
+}
+
+input[type="checkbox"] {
+	transform: scale(1.5);
+	margin-right: 0.6em;
+	vertical-align: middle;
+}
+
+p {
+	margin-top: 0.5em;
+	margin-bottom: 0.5em;
+}
+
+.image {
+	border: none;
+	margin: 1.5em 0;
+	padding: 0;
+	border-radius: 0;
+	text-align: center;
+}
+
+.code,
+code {
+	background: rgba(135, 131, 120, 0.15);
+	border-radius: 3px;
+	padding: 0.2em 0.4em;
+	border-radius: 3px;
+	font-size: 85%;
+	tab-size: 2;
+}
+
+code {
+	color: #eb5757;
+}
+
+.code {
+	padding: 1.5em 1em;
+}
+
+.code-wrap {
+	white-space: pre-wrap;
+	word-break: break-all;
+}
+
+.code > code {
+	background: none;
+	padding: 0;
+	font-size: 100%;
+	color: inherit;
+}
+
+blockquote {
+	font-size: 1.25em;
+	margin: 1em 0;
+	padding-left: 1em;
+	border-left: 3px solid rgb(55, 53, 47);
+}
+
+.bookmark {
+	text-decoration: none;
+	max-height: 8em;
+	padding: 0;
+	display: flex;
+	width: 100%;
+	align-items: stretch;
+}
+
+.bookmark-title {
+	font-size: 0.85em;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	height: 1.75em;
+	white-space: nowrap;
+}
+
+.bookmark-text {
+	display: flex;
+	flex-direction: column;
+}
+
+.bookmark-info {
+	flex: 4 1 180px;
+	padding: 12px 14px 14px;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+}
+
+.bookmark-image {
+	width: 33%;
+	flex: 1 1 180px;
+	display: block;
+	position: relative;
+	object-fit: cover;
+	border-radius: 1px;
+}
+
+.bookmark-description {
+	color: rgba(55, 53, 47, 0.6);
+	font-size: 0.75em;
+	overflow: hidden;
+	max-height: 4.5em;
+	word-break: break-word;
+}
+
+.bookmark-href {
+	font-size: 0.75em;
+	margin-top: 0.25em;
+}
+
+.sans { font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol"; }
+.code { font-family: "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace; }
+.serif { font-family: Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif; }
+.mono { font-family: iawriter-mono, Nitti, Menlo, Courier, monospace; }
+.pdf .sans { font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, "Apple Color Emoji", Arial, sans-serif, "Segoe UI Emoji", "Segoe UI Symbol", 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .code { font-family: Source Code Pro, "SFMono-Regular", Consolas, "Liberation Mono", Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.pdf .serif { font-family: PT Serif, Lyon-Text, Georgia, YuMincho, "Yu Mincho", "Hiragino Mincho ProN", "Hiragino Mincho Pro", "Songti TC", "Songti SC", "SimSun", "Nanum Myeongjo", NanumMyeongjo, Batang, serif, 'Twemoji', 'Noto Color Emoji', 'Noto Sans CJK SC', 'Noto Sans CJK KR'; }
+
+.pdf .mono { font-family: PT Mono, iawriter-mono, Nitti, Menlo, Courier, monospace, 'Twemoji', 'Noto Color Emoji', 'Noto Sans Mono CJK SC', 'Noto Sans Mono CJK KR'; }
+
+.highlight-default {
+}
+.highlight-gray {
+	color: rgb(155,154,151);
+}
+.highlight-brown {
+	color: rgb(100,71,58);
+}
+.highlight-orange {
+	color: rgb(217,115,13);
+}
+.highlight-yellow {
+	color: rgb(223,171,1);
+}
+.highlight-teal {
+	color: rgb(15,123,108);
+}
+.highlight-blue {
+	color: rgb(11,110,153);
+}
+.highlight-purple {
+	color: rgb(105,64,165);
+}
+.highlight-pink {
+	color: rgb(173,26,114);
+}
+.highlight-red {
+	color: rgb(224,62,62);
+}
+.highlight-gray_background {
+	background: rgb(235,236,237);
+}
+.highlight-brown_background {
+	background: rgb(233,229,227);
+}
+.highlight-orange_background {
+	background: rgb(250,235,221);
+}
+.highlight-yellow_background {
+	background: rgb(251,243,219);
+}
+.highlight-teal_background {
+	background: rgb(221,237,234);
+}
+.highlight-blue_background {
+	background: rgb(221,235,241);
+}
+.highlight-purple_background {
+	background: rgb(234,228,242);
+}
+.highlight-pink_background {
+	background: rgb(244,223,235);
+}
+.highlight-red_background {
+	background: rgb(251,228,228);
+}
+.block-color-default {
+	color: inherit;
+	fill: inherit;
+}
+.block-color-gray {
+	color: rgba(55, 53, 47, 0.6);
+	fill: rgba(55, 53, 47, 0.6);
+}
+.block-color-brown {
+	color: rgb(100,71,58);
+	fill: rgb(100,71,58);
+}
+.block-color-orange {
+	color: rgb(217,115,13);
+	fill: rgb(217,115,13);
+}
+.block-color-yellow {
+	color: rgb(223,171,1);
+	fill: rgb(223,171,1);
+}
+.block-color-teal {
+	color: rgb(15,123,108);
+	fill: rgb(15,123,108);
+}
+.block-color-blue {
+	color: rgb(11,110,153);
+	fill: rgb(11,110,153);
+}
+.block-color-purple {
+	color: rgb(105,64,165);
+	fill: rgb(105,64,165);
+}
+.block-color-pink {
+	color: rgb(173,26,114);
+	fill: rgb(173,26,114);
+}
+.block-color-red {
+	color: rgb(224,62,62);
+	fill: rgb(224,62,62);
+}
+.block-color-gray_background {
+	background: rgb(235,236,237);
+}
+.block-color-brown_background {
+	background: rgb(233,229,227);
+}
+.block-color-orange_background {
+	background: rgb(250,235,221);
+}
+.block-color-yellow_background {
+	background: rgb(251,243,219);
+}
+.block-color-teal_background {
+	background: rgb(221,237,234);
+}
+.block-color-blue_background {
+	background: rgb(221,235,241);
+}
+.block-color-purple_background {
+	background: rgb(234,228,242);
+}
+.block-color-pink_background {
+	background: rgb(244,223,235);
+}
+.block-color-red_background {
+	background: rgb(251,228,228);
+}
+.select-value-color-default { background-color: rgba(206,205,202,0.5); }
+.select-value-color-gray { background-color: rgba(155,154,151, 0.4); }
+.select-value-color-brown { background-color: rgba(140,46,0,0.2); }
+.select-value-color-orange { background-color: rgba(245,93,0,0.2); }
+.select-value-color-yellow { background-color: rgba(233,168,0,0.2); }
+.select-value-color-green { background-color: rgba(0,135,107,0.2); }
+.select-value-color-blue { background-color: rgba(0,120,223,0.2); }
+.select-value-color-purple { background-color: rgba(103,36,222,0.2); }
+.select-value-color-pink { background-color: rgba(221,0,129,0.2); }
+.select-value-color-red { background-color: rgba(255,0,26,0.2); }
+
+.checkbox {
+	display: inline-flex;
+	vertical-align: text-bottom;
+	width: 16;
+	height: 16;
+	background-size: 16px;
+	margin-left: 2px;
+	margin-right: 5px;
+}
+
+.checkbox-on {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20width%3D%2216%22%20height%3D%2216%22%20fill%3D%22%2358A9D7%22%2F%3E%0A%3Cpath%20d%3D%22M6.71429%2012.2852L14%204.9995L12.7143%203.71436L6.71429%209.71378L3.28571%206.2831L2%207.57092L6.71429%2012.2852Z%22%20fill%3D%22white%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+
+.checkbox-off {
+	background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2016%2016%22%20fill%3D%22none%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%3E%0A%3Crect%20x%3D%220.75%22%20y%3D%220.75%22%20width%3D%2214.5%22%20height%3D%2214.5%22%20fill%3D%22white%22%20stroke%3D%22%2336352F%22%20stroke-width%3D%221.5%22%2F%3E%0A%3C%2Fsvg%3E");
+}
+	
+</style></head><body><article id="83c6567f-72e8-449b-bd95-efc3a90b1d1d" class="page sans"><header><h1 class="page-title">Инструкция по установке</h1></header><div class="page-body"><nav id="a39aaa34-55b6-4ada-a768-74b19c9bd786" class="block-color-purple_background table_of_contents"><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#5c794dff-3a88-414d-b6d1-eb9554e2e599">Окружение для работы со Spark, Hadoop</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#dc106018-1f39-4ca1-83b2-e9d9782ee93d">Установка VM</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#b3309eae-a993-49ab-be50-551c94bac571">Настройка Virtual machine</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#a16fe676-9e73-4ac0-814d-3f6a3bae9903">Проброс портов</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#e4c38ae5-1394-452e-a4d1-31b0306fc216">Установка пароля в  jupyter</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#23baeebf-69f1-4772-b301-c177bafcfa80">Генерация публичного ключа</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#62f8ccd1-39fc-44cd-9e2a-362e56cf4e5a">Для Unix (Linux, MacOs)</a></div><div class="table_of_contents-item table_of_contents-indent-1"><a class="table_of_contents-link" href="#1a0afaf3-9179-442a-ae05-0c74f2305fd7">Для Windows</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#c8e3f95d-5883-4ca2-b778-2bdd716172cb">Проверить подключение к выбранному серверу по ssh</a></div><div class="table_of_contents-item table_of_contents-indent-0"><a class="table_of_contents-link" href="#1c5d14bc-6a72-447e-8d4f-10929df34595">Установка spark файлом</a></div></nav><h1 id="5c794dff-3a88-414d-b6d1-eb9554e2e599" class="">Окружение для работы со Spark, Hadoop</h1><p id="1f930375-ba16-487f-835c-2fc6491bcb6f" class="">Очень важно иметь возможность работать с технологиями, которые изучаются. Без практики сложно усвоить такой объем материала.</p><p id="2290e273-9be5-413c-a788-675f65ade25b" class="">У вас могут быть установлены ОС такие как Windows, Linux, MacOS, я работаю на Ubuntu (это Linux).
+Чтобы эффективнее всего помогать с возникающими ошибками и проблемами - удобнее всего иметь одинаковое окружение, тогда почти любая проблема будет решена очень быстро.</p><p id="742da1ba-cd34-4414-ba19-fb9ac23c66e4" class="">На курсе мы поговорим про многие вещи, которые могут служить источником проблем.</p><p id="6887f309-ab31-4dea-8157-74107877b569" class="">Поэтому довольно удобный вариант - работать на <strong>виртуальной машине</strong>. У нас появилась опция работать также на отдельном сервере <strong>Яндекс.Облака  - </strong>такой вариант тоже отлично подходит.</p><p id="4cb60bf8-5be8-4884-a985-a384de5a50c7" class="">Алгоритм по настройке окружения в целом одинаковый и состоит из нескольких шагов.</p><p id="5cee92c3-82e9-4318-a7b3-bdbaed8809c1" class="">1) Определиться  - хотите ли вы делать VM или хотите подключиться к серверу Яндекс.Облака</p><p id="805741f4-dfb3-42aa-b3ab-fb220afed86a" class="">2) После первого шага - процесс разнится<div class="indented"><p id="1a6a8c89-d5a3-4cf7-b7d8-7321d0059110" class="">Если вы выбрали VM, то окружение уже установлено и нужно будет только запустить нужные процессы - и можно приступать к работе</p><p id="203633b5-91cf-4cdc-be54-76f7a68d4304" class="">Если вы выбрали Яндекс.Облако, то нужно будет настроить окружение, запустив bash-скрипт, а затем можно приступать к работе</p></div></p><p id="93bed5e2-7c39-48f8-89e2-01e2c4fcae26" class="">Следующий шаг опционален, так как уже рабочее окружение у вас будет.</p><p id="1cb464de-d7a2-40c8-8e4f-c8c45bb37428" class="">3) Проброс портов</p><p id="b8c54613-a844-4ba7-b4c8-b7875326dc04" class="">
+</p><p id="d8c1e37d-9338-4a1f-813a-7f6244f08c22" class="">В 8 лекции мы как раз будем говорить про окружения и другие  абстракции позволяющие организовать работу.</p><h1 id="dc106018-1f39-4ca1-83b2-e9d9782ee93d" class="">Установка VM</h1><p id="de7efaf5-1c5b-4d89-9d73-0551b807fed6" class="">Если вкратце - то VM позволяет вне зависимости от того, на какой операционной системе операционной системе вы работаете - внутри будет запущена Linux (Ubuntu).</p><p id="7bf2fe7a-5dd7-44c1-a11b-e5074f85ba37" class="">Например, если сейчас вы работаете на Windows инструкция ниже позволит Вам скачать и уставить маленький сервер с настроенными Spark, Hadoop внутри вашей Windows.</p><p id="b5dc8a1f-7dc4-48b2-b744-6eb0cc2e6e87" class="">Давайте начинать.</p><ol id="b71fbf12-6aed-4ad6-9406-2f7ead3e8ff3" class="numbered-list" start="1"><li>Перейдите на сайт virtualbox  <a href="https://www.virtualbox.org/wiki/Downloads">https://www.virtualbox.org/wiki/Downloads</a></li></ol><ol id="5b50bf6a-9513-430b-8b3f-abef8f0eaf19" class="numbered-list" start="2"><li>Выберите свою операционную систему, чтобы  скачать VirtualBox<figure id="39e17b6a-cbe9-40fe-97b7-1a99f972dab7" class="image"><a href="https://img-a.udemycdn.com/redactor/raw/article_lecture/2020-11-29_17-57-18-9aff4157e001096a2deff8adbdfd5506.png?hVpn4C5gROBZiTCvYeYBezqfIS-kqjEf8eCa5qrsTMsZUazcEaIruGUOUUZ0FfUP3P0N11IWU4bvuPaSQnBBo6EeIEeBa5VJjalCLxjFaSmNK1eCs7YRkWPlh05sUGVvfHIOaQr4mua3BwVSlwaaoAeMRe_tqENqsN-77bJCWc_FD9WLr2e177bHLDUgSBiA1svJqQ"><img src="https://img-a.udemycdn.com/redactor/raw/article_lecture/2020-11-29_17-57-18-9aff4157e001096a2deff8adbdfd5506.png?hVpn4C5gROBZiTCvYeYBezqfIS-kqjEf8eCa5qrsTMsZUazcEaIruGUOUUZ0FfUP3P0N11IWU4bvuPaSQnBBo6EeIEeBa5VJjalCLxjFaSmNK1eCs7YRkWPlh05sUGVvfHIOaQr4mua3BwVSlwaaoAeMRe_tqENqsN-77bJCWc_FD9WLr2e177bHLDUgSBiA1svJqQ"/></a></figure></li></ol><ol id="aa819483-d147-4be4-8189-98c2760a036c" class="numbered-list" start="3"><li>Когда она будет скачана нажмите на нее дважды и следуйте по предложенным пунктам установки далее</li></ol><ol id="6c5422e7-5450-4e9c-925e-65d271ca852c" class="numbered-list" start="4"><li>Когда она будет установлена у Вас должен появиться какой-то такой результат<figure id="5183b3d8-bc4b-4361-9516-42108fddefab" class="image"><a href="https://img-a.udemycdn.com/redactor/raw/article_lecture/2020-11-29_17-57-37-6e430dba7f41fdc23889df7b30928870.png?mkrdTJfLbIxN9C9j33phUFv9RM8RwhqXD-FTV_wiIn5yOTEEUniFhwys5WaX_3oERbTxaOnIVoJOgy89jUpSuoWc0bpRlpkfn01B9--akLeZm-wXVsOkoM4ai3de0r7S3cAGUt9eecigJ5oN4dd3Y0LxgOu9b_ym-TxYM9OYg3BL72DKnolK2Yxs4HOSoTbR1HuaYQ"><img src="https://img-a.udemycdn.com/redactor/raw/article_lecture/2020-11-29_17-57-37-6e430dba7f41fdc23889df7b30928870.png?mkrdTJfLbIxN9C9j33phUFv9RM8RwhqXD-FTV_wiIn5yOTEEUniFhwys5WaX_3oERbTxaOnIVoJOgy89jUpSuoWc0bpRlpkfn01B9--akLeZm-wXVsOkoM4ai3de0r7S3cAGUt9eecigJ5oN4dd3Y0LxgOu9b_ym-TxYM9OYg3BL72DKnolK2Yxs4HOSoTbR1HuaYQ"/></a></figure><p id="d581a7f8-df26-46b0-9422-e15b26d847bf" class="">Если у вас уже установлен <strong> Virtual Box,  убедитесь, что это свежая версия (как минимум 6.1.14 и выше)</strong></p></li></ol><p id="a4cba248-761c-4b38-a604-d185d6072852" class="">Отлично мы только что успешно установили Virtual Box!</p><h1 id="b3309eae-a993-49ab-be50-551c94bac571" class="">Настройка Virtual machine</h1><p id="a302d296-b511-4006-967f-f16158813143" class="">Перейдите по ссылке на dropbox <a href="https://www.dropbox.com/s/pslkzbmgdu1dcgp/big_data.ova?dl=0">https://www.dropbox.com/s/pslkzbmgdu1dcgp/big_data.ova?dl=0</a></p><p id="b94b6d90-c9bc-48f7-909c-bb0dc6def5f3" class="">Это образ ВМ, в которой установлен spark и jupyter notebook и можно сразу начинать ей пользоваться.</p><p id="8d038089-49c1-4a7d-9887-a04aadbaf7e9" class="">Когда Virtual Box скачан, необходимо установить и настроить виртуальную машину.</p><p id="13111882-7b6f-4765-afce-3187f0cf44b3" class="">В конце должен получиться работающий дистрибутив Linux (Ubuntu), запущенный в VirtualBox, внутри компьютера.</p><p id="523db1ce-4c72-466d-8e4e-1582c97925b6" class="">Необходимо будет скачать файл, который называет <strong> big_data.ova.</strong></p><p id="6bb9dbd8-ba8f-4929-a1ca-bf418bf1bfac" class="">Нажмите на него дважды.</p><p id="6ae6cab1-4aa1-4239-88af-68545d99dc8c" class="">Результат будет выглядеть похоже:</p><p id="456bd256-1fd4-4d9b-b6e0-a1cd628c1228" class="">
+</p><figure id="7c823df3-5814-4bb9-97c4-c6f2b191686e" class="image"><a href="https://img-a.udemycdn.com/redactor/raw/article_lecture/2020-11-29_19-03-55-d97935a6712bd69f73cdebff28932968.png?ueYE2YVWKya7bk9sVtl_it9RDXH9gtxQi8qKBwnrxdbnideya6cUilVu_44hY8DlUsOyGPv95JaHbpB6PUAzg59ZGCMgPz4dY-xqBOgrfkqb6av1X_U3m8hV1g30qqXbhN7HZMDp4r1qhjyuRIxXX4iEOBY6xNUw81SkAfYg920QEPkMMeb3VD9kPXYc6_YMunl8Cg"><img src="https://img-a.udemycdn.com/redactor/raw/article_lecture/2020-11-29_19-03-55-d97935a6712bd69f73cdebff28932968.png?ueYE2YVWKya7bk9sVtl_it9RDXH9gtxQi8qKBwnrxdbnideya6cUilVu_44hY8DlUsOyGPv95JaHbpB6PUAzg59ZGCMgPz4dY-xqBOgrfkqb6av1X_U3m8hV1g30qqXbhN7HZMDp4r1qhjyuRIxXX4iEOBY6xNUw81SkAfYg920QEPkMMeb3VD9kPXYc6_YMunl8Cg"/></a></figure><ul id="9558542d-f282-427f-ac7e-abadbd767d22" class="bulleted-list"><li>Нажмите на старт, дождитесь пока загрузится ВМ</li></ul><p id="3d870193-9251-462d-a0fa-39252ae5b76d" class="">username: spark</p><p id="9e51be06-1ae5-4a1a-8382-924a7908558b" class="">password: 1</p><h1 id="a16fe676-9e73-4ac0-814d-3f6a3bae9903" class="">Проброс портов</h1><p id="efaad028-7c30-4e49-81bf-8b454effe431" class="">Нам будут нужны две сущности - это spark, его интерфейс и jupyter notebook для кода.</p><p id="4781e7ad-2740-4ffc-a007-bb76e1a5279a" class="">Для них как вы помните  - у jupyter адрес <a href="http://localhost:888">localhost:888</a> </p><p id="ffc81da0-3f58-476b-bc3b-bd478a2a8115" class="">У спарка будет localhost:4040</p><p id="23908e68-76ec-45ea-a88a-19558867560c" class="">Внутри ВМ - эти адреса будут недоступны, так как будут иметь другой айпи адрес.</p><p id="1cf5265b-7509-44e0-89c9-b9dab0b17d10" class="">Чтобы узнать айпи ВМ можно запустить команду ifconfig, предположим </p><figure id="765fa6f0-7ff8-463b-979b-3eba9b87c3f0" class="image"><a href="https://i.postimg.cc/jSCWqf7n/Untitled.png"><img src="https://i.postimg.cc/jSCWqf7n/Untitled.png"/></a></figure><p id="0d7f6b9a-d854-4e21-a275-279307816a54" class="">Вывод будет примерно такой - здесь адрес это 10.0.2.15</p><p id="79853498-7ae7-417d-9aca-7faa41f431f2" class="">Именно на нем будут запущены spark, jupyter notebook</p><p id="0a05587e-dc07-4e06-8320-22761b309029" class="">10.0.2.15:8888 - jupyter notebook</p><p id="5db63fc7-f852-422f-8b55-128eac2ab4e5" class="">10.0.2.15:4040 - spark</p><h1 id="e4c38ae5-1394-452e-a4d1-31b0306fc216" class="">Установка пароля в  jupyter</h1><p id="d7ca36aa-5694-4ecb-9836-a8be81e2e8d0" class="">Чтобы каждый раз при заходе в jupyter не вводить токен - удобно поставить пароль следующей командой</p><p id="7a5f15e4-3981-4aec-9360-7edfdf7a34a2" class="">jupyter notebook password</p><figure id="8a09ccd1-e7de-4ca5-9cca-0e78a9bf9b40" class="image"><a href="https://i.postimg.cc/xT6JS5cS/Untitled-1.png"><img src="https://i.postimg.cc/xT6JS5cS/Untitled-1.png"/></a></figure><p id="a3795648-765e-4f0c-8773-001c7310583f" class="">Это будет выглядеть как-то так.</p><h1 id="23baeebf-69f1-4772-b301-c177bafcfa80" class="">Генерация публичного ключа</h1><p id="077a8bb9-1a98-4d4c-b066-a5a255a1c8d5" class="">Прикрепляю две ссылки для windows и для mac.
+Следуя шагам должен получится нужный файл.</p><h3 id="62f8ccd1-39fc-44cd-9e2a-362e56cf4e5a" class="">Для Unix (Linux, MacOs)</h3><figure id="94867900-c735-4dad-af77-161325115413"><a href="https://community.vscale.io/hc/ru/community/posts/207745269-%D0%9A%D0%B0%D0%BA-%D1%81%D0%B3%D0%B5%D0%BD%D0%B5%D1%80%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C-SSH-%D0%BA%D0%BB%D1%8E%D1%87-%D0%B4%D0%BB%D1%8F-%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%B0-%D0%BD%D0%B0-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Как сгенерировать SSH-ключ для доступа на сервер</div><div class="bookmark-description">Использование SSH-ключей -простой и надёжный способ обеспечения безопасности соединения с сервером. В отличие от пароля, взломать SSH-ключ практически невозможно. Сгенерировать SSH-ключ очень просто. Linux/MacOS Откройте терминал и выполните команду: $ ssh-keygen -t rsa На консоль будет выведен следующий диалог: Enter file in which to save the key (/home/user/.ssh/id_rsa): Нажмите на клавишу Enter.</div></div><div class="bookmark-href"><img src="https://theme.zdassets.com/theme_assets/1085298/7419c504d615a11d86a6f9454f0e577d2a3f509c.png" class="icon bookmark-icon"/>https://community.vscale.io/hc/ru/community/posts/207745269-%D0%9A%D0%B0%D0%BA-%D1%81%D0%B3%D0%B5%D0%BD%D0%B5%D1%80%D0%B8%D1%80%D0%BE%D0%B2%D0%B0%D1%82%D1%8C-SSH-%D0%BA%D0%BB%D1%8E%D1%87-%D0%B4%D0%BB%D1%8F-%D0%B4%D0%BE%D1%81%D1%82%D1%83%D0%BF%D0%B0-%D0%BD%D0%B0-%D1%81%D0%B5%D1%80%D0%B2%D0%B5%D1%80</div></div><img src="https://community.vscale.io/hc/user_images/Dmr77n5_-31XOaq_80BalQ.jpeg" class="bookmark-image"/></a></figure><h3 id="1a0afaf3-9179-442a-ae05-0c74f2305fd7" class="">Для Windows</h3><figure id="a222b521-0f01-4823-b5d7-ffc84236c9c7"><a href="https://wiki.merionet.ru/servernye-resheniya/63/kak-sgenerirovat-klyuch-ssh-v-windows-openssh-i-putty/" class="bookmark source"><div class="bookmark-info"><div class="bookmark-text"><div class="bookmark-title">Как сгенерировать ключ SSH в Windows</div><div class="bookmark-description">SSH расшифровывается как Secure Shell и представляет собой метод, используемый для установления безопасного соединения между двумя компьютерами. SSH работает путем аутентификации на основе пары ключей, причем закрытый ключ находится на удаленном сервере, а соответствующий открытый ключ - на локальной машине. Когда ключи совпадают, доступ предоставляется удаленному пользователю.</div></div><div class="bookmark-href"><img src="https://wiki.merionet.ru/favicon.ico" class="icon bookmark-icon"/>https://wiki.merionet.ru/servernye-resheniya/63/kak-sgenerirovat-klyuch-ssh-v-windows-openssh-i-putty/</div></div><img src="https://wiki.merionet.ru/images/kak-sgenerirovat-klyuch-ssh-v-windows-openssh-i-putty/1.png" class="bookmark-image"/></a></figure><h1 id="c8e3f95d-5883-4ca2-b778-2bdd716172cb" class="">Проверить подключение к выбранному серверу по ssh</h1><p id="f246f48b-8ad1-4f2d-b480-666543354397" class="">На всех серверах Яндекс.Облака установлен дефолтный пользователь lisitsina</p><p id="c29084da-7e29-49ff-a655-85876a6b42fd" class="">Чтобы проверить добавился ваш публичный ключ на сервер или нет попробуйте выполнить</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="484daf75-acd6-4a41-9a54-d8977f0e8ee3" class="code"><code>ssh lisitsina@address</code></pre><h1 id="1c5d14bc-6a72-447e-8d4f-10929df34595" class="">Установка spark файлом</h1><p id="0a340589-7e73-457a-b595-1118062b7fe9" class="">Необходимо скачать файл из задания make_spark_environ.sh выше</p><p id="5348ae88-48df-4dfc-9f04-2ced6615b03d" class="">И затем положить его на Ваш сервер.</p><p id="6780ed25-4fad-4ec9-a606-f918f6107ad8" class="">Это можно сделать командой:</p><p id="d0cfccbe-c433-4d0b-9135-6adf00197c53" class="">scp ./путь_к_скачанному_файлу lisitsina@address</p><p id="37721fe1-a15e-4142-8d4f-b4037227a9d7" class="">Должно получиться что-то такое</p><figure id="7501c32c-ef22-46e4-9518-ea51314a7313" class="image"><a href="https://i.postimg.cc/PrXpc9f4/Untitled-2.png"><img src="https://i.postimg.cc/PrXpc9f4/Untitled-2.png"/></a></figure><p id="a4b3f062-3e5c-4655-b2e7-8afdd09c04bd" class="">После копирования этот файл нужно сделать исполняемым - для этого подключаемся к серверу, проверяем, что файл на месте. А затем выполняем</p><style>@import url('https://cdnjs.cloudflare.com/ajax/libs/prism/1.23.0/themes/prism.min.css')</style><pre id="61d05bc2-4128-4d09-a6db-15da9303a808" class="code"><code><span class="token function">chmod</span> -x ./make_spark_environ.sh <span class="token operator">&amp;&amp;</span> ./make_spark_environ</code></pre><p id="74a451af-c39f-4eea-892f-7b472a5680fd" class="">Проброс портов на сервер</p><p id="6f0c18aa-f573-48f8-a263-be2541e52b99" class="">
+</p></div></article></body></html>
